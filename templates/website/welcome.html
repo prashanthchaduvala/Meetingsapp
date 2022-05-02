@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title%}Welcome{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Meeting Planner !</h1>
+    <p>
+        There are currently {{num_meetings}} meetings in the database.
+    </p>
+    
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'detail' meeting.id %}">{{meeting.title}}</a>
+            </li>
+        {% endfor%}
+    </ul>
+    <p>
+        <a href="{% url 'new' %}">Plan New Meeting</a>
+    </p>
+    <h3><a href="{% url 'rooms' %}">Rooms List</a></h3>
+ </p>
+
+    <h3><a href="{% url 'create_room' %}">Create Rooms</a></h3>
+
+
+</p>
+
+    <h3><a href="{% url 'get_record' %}">Video recore list</a></h3>
+
+
+
+
+</p>
+
+    <table align="left"><a href="{% url 'logout' %}">Logout</a></table>
+
+{% endblock %}
